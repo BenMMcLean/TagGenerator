@@ -12,6 +12,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+/**
+ * Calculates tags for an inputed document using TF-IDF
+ * @author Ben McLean
+ */
 public class TagGenerator {
 	
 	HashMap<String, Double> idf;
