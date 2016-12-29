@@ -35,6 +35,10 @@ public class TagGenerator {
 		this.idf = idf;
 	}
 	
+	public String[] generateTags(String document, int num){
+		return generateTags(prepareDoc(document), num);
+	}
+	
 	public String[] generateTags(String[] document, int num){
 		TFIDFHolder[] tfidf = tfidf(document);
 		
