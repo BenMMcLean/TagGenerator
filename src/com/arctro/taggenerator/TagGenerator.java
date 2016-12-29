@@ -15,6 +15,7 @@ import java.util.Map.Entry;
 public class TagGenerator {
 	
 	HashMap<String, Double> idf;
+	private static final double DEFAULT_IDF = Math.log((double)1/(double)22038615);
 	
 	/**
 	 * Initialize a TagGenerator with a file of idfs
@@ -98,7 +99,7 @@ public class TagGenerator {
 			
 			//If the term is not listed in the ifd index, the default value is calculated
 			//as log( 1 / total documents)
-			double idfr = Math.log((double)1/(double)22038615);
+			double idfr = DEFAULT_IDF;
 			if(idf.containsKey(pair.getKey())){
 				idfr = idf.get(pair.getKey());
 			}
