@@ -19,7 +19,7 @@ import java.util.Map.Entry;
 public class TagGenerator {
 	
 	HashMap<String, Double> idf;
-	private static final double DEFAULT_IDF = Math.log((double)1/(double)22038615);
+	private static final double DEFAULT_IDF = Math.log((double)1/(double)1000000000);
 	
 	/**
 	 * Initialize a TagGenerator with a file of idfs
