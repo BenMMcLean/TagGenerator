@@ -63,7 +63,7 @@ public class TagGenerator {
 				continue;
 			}
 			
-			double idfr = Math.log((double)pair.getValue()/(double)22038615);
+			double idfr = Math.log((double)1/(double)22038615);
 			if(idf.containsKey(pair.getKey())){
 				idfr = idf.get(pair.getKey());
 			}
