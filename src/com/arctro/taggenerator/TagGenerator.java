@@ -20,6 +20,7 @@ public class TagGenerator {
 	
 	HashMap<String, Double> idf;
 	private static final double DEFAULT_IDF = Math.log((double)1/(double)1000000000);
+	boolean allowUnknown = false;
 	
 	/**
 	 * Initialize a TagGenerator with a file of idfs
@@ -106,6 +107,8 @@ public class TagGenerator {
 			double idfr = DEFAULT_IDF;
 			if(idf.containsKey(pair.getKey())){
 				idfr = idf.get(pair.getKey());
+			}else if(!allowUnknown){
+				continue;
 			}
 			
 			//Add TF-IDF to results
@@ -178,6 +181,14 @@ public class TagGenerator {
 	public static String[] prepareDoc(String doc){
 		//Remove all non alpha characters, all double spaces, and any single characters, then split by spaces
 		return doc.toLowerCase().replaceAll("[^ a-zA-Z]", "").replaceAll(" . ", "").replaceAll(" {2,}", "").split(" ");
+	}
+	
+	/**
+	 * Sets if unknown words are allowed to be used. Disabling this prevents typos from being included.
+	 * @param allowUnknown If unknown words are allowed to be used
+	 */
+	public void setAllowUnknown(boolean allowUnknown){
+		this.allowUnknown = allowUnknown;
 	}
 	
 	/**
