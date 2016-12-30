@@ -20,7 +20,7 @@ public class TagGenerator {
 	
 	HashMap<String, Double> idf;
 	private static final double DEFAULT_IDF = Math.log((double)1/(double)1000000000);
-	boolean allowUnknown = false;
+	boolean allowUnknown = true;
 	
 	/**
 	 * Initialize a TagGenerator with a file of idfs
